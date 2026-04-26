@@ -1,0 +1,30 @@
+[
+{
+    "id": "DEV-001",
+    "name": "Ava Chen",
+    "manager": "MGR-01",
+    "leadTime": 2.9,
+    "cycleTime": 4.2,
+    "bugRate": 0,
+    "deployments": {
+      "March": 2,
+      "April": 2
+    },
+    "totalDeployments": 4,
+    "prCount": 4
+  },
+  {
+    "id": "DEV-005",
+    "name": "Emma Roy",
+    "manager": "MGR-03",
+    "leadTime": 4.4,
+    "cycleTime": 5.3,
+    "bugRate": 0.2,
+    "deployments": {
+      "March": 2,
+      "April": 2
+    },
+    "totalDeployments": 4,
+    "prCount": 4
+  }
+]
