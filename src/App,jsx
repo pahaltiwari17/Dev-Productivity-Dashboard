@@ -23,8 +23,6 @@ function App() {
   return (
     <div style={{ padding: "20px" }}>
       <h1>Developer Productivity Dashboard</h1>
-
-      {/* ✅ MANAGER DASHBOARD */}
       <h2>Manager Overview</h2>
       {Object.keys(managerSummary).map((manager) => {
         const m = managerSummary[manager];
@@ -43,7 +41,6 @@ function App() {
         );
       })}
 
-      {/* Developer Cards */}
       <h2>Developer Details</h2>
       {data.map((dev) => (
         <Card key={dev.id} dev={dev} />
