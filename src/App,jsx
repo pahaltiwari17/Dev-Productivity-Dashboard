@@ -1,0 +1,55 @@
+import React from "react";
+import data from "./data.json";
+import Card from "./Card";
+
+function App() {
+  // Manager grouping
+  const managerSummary = {};
+
+  data.forEach((dev) => {
+    if (!managerSummary[dev.manager]) {
+      managerSummary[dev.manager] = {
+        developers: [],
+        totalLead: 0,
+        totalCycle: 0,
+      };
+    }
+
+    managerSummary[dev.manager].developers.push(dev.name);
+    managerSummary[dev.manager].totalLead += dev.leadTime;
+    managerSummary[dev.manager].totalCycle += dev.cycleTime;
+  });
+
+  return (
+    <div style={{ padding: "20px" }}>
+      <h1>Developer Productivity Dashboard</h1>
+
+      {/* ✅ MANAGER DASHBOARD */}
+      <h2>Manager Overview</h2>
+      {Object.keys(managerSummary).map((manager) => {
+        const m = managerSummary[manager];
+
+        return (
+          <div key={manager} style={{ marginBottom: "15px" }}>
+            <h4>{manager}</h4>
+            <p>Team Members: {m.developers.join(", ")}</p>
+            <p>
+              Avg Lead Time: {(m.totalLead / m.developers.length).toFixed(2)}
+            </p>
+            <p>
+              Avg Cycle Time: {(m.totalCycle / m.developers.length).toFixed(2)}
+            </p>
+          </div>
+        );
+      })}
+
+      {/* Developer Cards */}
+      <h2>Developer Details</h2>
+      {data.map((dev) => (
+        <Card key={dev.id} dev={dev} />
+      ))}
+    </div>
+  );
+}
+
+export default App;
